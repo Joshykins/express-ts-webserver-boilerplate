@@ -3,7 +3,7 @@ Opinionated Boilerplate for a typescript backend server
 
 #TODO LIST:
 
-1. Proper hotloader
+1. ~~Proper hotloader~~
 2. Docker Setup
 3. ~~ESLint~~
 4. ~~Init Webserver~~
