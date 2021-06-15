@@ -8,6 +8,7 @@
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
+    "dev": "tsc-watch --OnSuccess \" node . \"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +29,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.13",
     "nodemon": "^2.0.7",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "tsc-watch": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",

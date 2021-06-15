@@ -1,8 +1,8 @@
 import express from 'express';
 import { EnvVariables } from './config/config.server';
 import { DataBase } from './data/connection/data.connect';
-import { UnknownRouter } from './endpoints/endpoint.404';
-import { ExampleRouter } from './endpoints/endpoint.example';
+import { UnknownRouter } from './routes/route.404';
+import { ExampleRouter } from './routes/route.example';
 import { Log, LogLevels } from './util/logger';
 
 const app = express();

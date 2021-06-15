@@ -1,7 +1,6 @@
 # express-ts-webserver-boilerplate
 Opinionated Boilerplate for a typescript backend server
 
-
 #TODO LIST:
 
 1. Proper hotloader
@@ -14,9 +13,9 @@ Opinionated Boilerplate for a typescript backend server
 8. Models
  - DTO  (request/response objects)
  - DBTO (database objects)
- - (DB CONNECTION)
-10. ORM (probably typeORM)
+ - ~~(DB CONNECTION)~~
+10. ~~ORM~~
 11. DI/Testing/Hydration (no idea yet)
-12. Logging (logging levels, ERROR, WARN, INFO, DEBUG ) [an enum?]
+12. ~~Logging~~ 
 13. OpenAPI (maybe, haven't looked into feasibility)
 
