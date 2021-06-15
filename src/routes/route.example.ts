@@ -5,7 +5,7 @@ const ExampleRouter = express.Router()
 
 //Middleware before router actually receives requests
 ExampleRouter.use((req, res, next) => {
-    Log(`Example Router \n Time: ${Date.now()}`, LogLevels.INFO);
+    //Could put auth logic here, or something else u need for router
     next();
 })
 

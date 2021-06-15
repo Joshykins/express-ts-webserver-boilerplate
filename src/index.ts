@@ -38,21 +38,22 @@ const InitServer = async () => {
         next();
     });
 
-    //LOGGING EXAMPLE
-    Log("test by default runs at debug level");
-    Log("test level ERROR", LogLevels.ERROR);
-    Log("test level DEBUG", LogLevels.DEBUG);
-    Log("test level INFO", LogLevels.INFO);
-
     //Routes
     //-------------------------------------
+    
+    // Info only Router to display when req made to server
+    app.use((req, res, next) => {
+        let date = Date.now();
+        Log( `${new Date(date).toLocaleTimeString()} : ${new Date(date).toDateString()} | ${req.method} request made to ${req.url}`, LogLevels.INFO);
+        next();
+    })
+    
     //Example Router
     app.use("/" /*Base Route*/, ExampleRouter /*Router*/);
     app.use("/test/test/test" /*Base Route*/, ExampleRouter /*Router*/);
 
     //404 Route
     app.use('/*', UnknownRouter);
-
 
     //Listening For Requests 
     app.listen(EnvVariables.PORT, () => {
