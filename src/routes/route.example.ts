@@ -1,5 +1,5 @@
 import express from 'express'
-import { LogLevels, Log } from '../util/logger';
+import { Log, LogLevels } from '../util/logger';
 
 const ExampleRouter = express.Router()
 

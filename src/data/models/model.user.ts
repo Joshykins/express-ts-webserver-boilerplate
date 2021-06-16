@@ -1,19 +1,17 @@
-import { model, Schema, Model, Document } from 'mongoose';
+import { Collection, Db, MongoClient, ObjectId } from 'mongodb';
+import { EnvVariables } from '../../config/config.server';
+import { mongoClient } from '../connection/data.connect';
 
-export interface IUser extends Document {
-    id: string;
+
+export interface User {
+    _id?: ObjectId;
     displayName: string;
     email: string;
     password: string;
     created: Date;
 }
 
-const UserSchema : Schema = new Schema({
-    id: { type: String, required: true, unique: true },
-    displayName: { type: String, required: false },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    created: { type: Date }
-})
 
-export const User : Model<IUser> = model('Users', UserSchema);
+export const Users = async () : Promise<Collection<User>> => {    
+    return mongoClient.db().collection<User>("Users");
+}

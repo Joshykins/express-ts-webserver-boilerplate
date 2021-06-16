@@ -32,5 +32,6 @@ console.log( "Log level selected was info" );
 export const EnvVariables = {
     PORT: process.env.PORT || 4000,
     DBConnectionString : process.env.CONNECTION_STRING,
+    DBName : process.env.DB_NAME,
     LogLevel : logLevel
 }

@@ -1,6 +1,7 @@
 import express from 'express';
 import { EnvVariables } from './config/config.server';
-import { DataBase } from './data/connection/data.connect';
+import { ValidateDatabaseConnection } from './data/connection/data.connect';
+import { User, Users } from './data/models/model.user';
 import { UnknownRouter } from './routes/route.404';
 import { ExampleRouter } from './routes/route.example';
 import { Log, LogLevels } from './util/logger';
@@ -14,7 +15,7 @@ const InitServer = async () => {
     //------------------------
     let dbSucceeded = true;
     try {
-        dbSucceeded = await DataBase();
+        dbSucceeded = await ValidateDatabaseConnection();
     }
     catch(err) {
         dbSucceeded = false;

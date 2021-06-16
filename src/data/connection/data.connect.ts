@@ -1,21 +1,25 @@
-import { connect } from "mongoose";
+import { Db, MongoClient } from "mongodb";
 import { Log, LogLevels } from '../../util/logger';
 import { EnvVariables } from '../../config/config.server';
 
+let dbClient : Db; 
 
-export const DataBase = async():Promise<boolean> => {
+let mongoClient : MongoClient;
+
+export const ValidateDatabaseConnection = async():Promise<boolean> => {
     try {
         if(!EnvVariables.DBConnectionString) {
             Log("NO CONNECTION STRING GIVEN :(", LogLevels.ERROR);
             return false;
         }
-        await connect(
-            EnvVariables.DBConnectionString, 
-            {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useCreateIndex: true
-            });
+        mongoClient = new MongoClient(
+        EnvVariables.DBConnectionString, 
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        mongoClient = await mongoClient.connect();
+
         return true
     }
     catch(err) {
@@ -23,3 +27,5 @@ export const DataBase = async():Promise<boolean> => {
         return false;
     }
 }
+
+export { mongoClient };
